@@ -1,0 +1,42 @@
+sitemap demo label="Catenz- Domotics using IOT"
+{	
+	Frame label="Water Management"
+	{
+		Group item=Water_level label="Water Status" icon="water"
+		{ 
+			Frame label="Water Details"
+			{
+				Text item=Water_percent
+				Switch item=Water_Pump mappings=[ON="Start Filling", OFF="Tank Full !!"] icon="tank"
+			}
+		}
+		
+	}
+	Frame label="Energy Management"
+	{
+		Group item=Enrgy_Mngmnt label="Energy Status" icon="energy"
+		{
+			Text item=Enrgy_cnsmption icon="energy"
+		}
+	}
+	
+	Frame label="Home Automation"
+	{
+		Group item=Home_Atmn label="Home Automation" icon="firstfloor"
+		{
+			Switch item=Tubelight
+			Switch item=Fan icon="socket"
+			Switch item=Bulb icon="whites"
+		}
+	}
+	
+	Frame label="Parking Management"
+	{
+		Text item=Parking_place icon = "greenhouse"
+	}
+	
+	
+
+
+}
+

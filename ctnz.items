@@ -1,0 +1,24 @@
+Group All
+Group Water_Level (All)
+Group Parking (All)
+Group Enrgy_Mngmnt (All)
+Group Home_Atmn (All)
+
+/*Water Management*/
+Group water_chart				(Water_Level)
+Dimmer Water_percent 			"Tank Level [The water in the tank is %.1f percent]" <shield> (Water_Level, water_chart)  			{mqtt="<[mqttbroker:11:state:default]"}
+Number waterC					(water_chart)  {mqtt="<[mqttbroker::state:default]"}
+Switch Water_Pump				"Pump Switch" 												(Water_Level) 							{mqtt=">[mqttbroker:12:command:ON:121],>[mqttbroker:12:command:OFF:120]"}
+Number Water_chart 				"Chart Period"
+
+/*Parking Management*/
+String Parking_place			"Parking [There is place to park at %s block]"	<greenhouse>			(Parking) 								{mqtt="<[mqttbroker:41:state:default]"}
+
+/*Energy Management*/
+Number Enrgy_cnsmption			"Energy Consumption [The Energy in watts hour you are consuming is %f]"		(Enrgy_Mngmnt)			{mqtt="<[mqttbroker:21:state:default]"}
+
+
+/* Home Automation */
+Switch Tubelight 				"Tubelight" 													(Home_Atmn)						{mqtt=">[mqttbroker:31:command:ON:311],>[mqttbroker:31:command:OFF:310]"}
+Switch Fan						"Fan"															(Home_Atmn)						{mqtt=">[mqttbroker:32:command:ON:321],>[mqttbroker:32:command:OFF:320]"}
+Switch Bulb						"Bulb"															(Home_Atmn)						{mqtt=">[mqttbroker:33:command:ON:331],>[mqttbroker:33:command:OFF:330]"}
